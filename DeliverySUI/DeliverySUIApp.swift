@@ -11,7 +11,7 @@ import SwiftUI
 struct DeliverySUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DeliveryTabView()
         }
     }
 }
