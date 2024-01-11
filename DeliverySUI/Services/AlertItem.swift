@@ -13,6 +13,11 @@ struct AlertItem: Identifiable {
     let message: Text?
     let dismissButton: Alert.Button
     
+    enum Network {}
+    enum Account {}
+}
+
+extension AlertItem.Network {
     static let invalidURL = AlertItem(
         title: Text("Invalid URL"),
         message: nil,
@@ -32,7 +37,27 @@ struct AlertItem: Identifiable {
         title: Text("Unexpected Error"),
         message: nil,
         dismissButton: .default(Text("Ok")))
-    
 }
 
-
+extension AlertItem.Account {
+    static let emptyFormField = AlertItem(
+        title: Text("Empty field"),
+        message: Text("Fill in all fields"),
+        dismissButton: .default(Text("Ok")))
+    
+    static let incorrectEmail = AlertItem(
+        title: Text("Wrong email address"),
+        message: Text("Please chack email address"),
+        dismissButton: .default(Text("Ok")))
+    
+    static let userEncodeIssue = AlertItem(
+        title: Text("Something went wrong"),
+        message: Text("Unable to save or load profile"),
+        dismissButton: .default(Text("Ok")))
+    
+    static let userSaved = AlertItem(
+        title: Text("Profile saved"),
+        message: nil,
+        dismissButton: .default(Text("Ok")))
+    
+}

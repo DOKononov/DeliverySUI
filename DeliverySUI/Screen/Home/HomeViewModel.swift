@@ -26,13 +26,13 @@ final class HomeViewModel: ObservableObject {
                 case .failure(let error):
                     switch error {
                     case .invalidData:
-                        self?.alertItem = AlertItem.invalidData
+                        self?.alertItem = AlertItem.Network.invalidData
                     case .invalidResponce:
-                        self?.alertItem = AlertItem.invalidResponce
+                        self?.alertItem = AlertItem.Network.invalidResponce
                     case .invalidURL:
-                        self?.alertItem = AlertItem.invalidURL
+                        self?.alertItem = AlertItem.Network.invalidURL
                     case .unexpectedError:
-                        self?.alertItem = AlertItem.unexpectedError
+                        self?.alertItem = AlertItem.Network.unexpectedError
                     }
                 }
             }
