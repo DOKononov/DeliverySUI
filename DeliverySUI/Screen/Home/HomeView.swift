@@ -15,6 +15,10 @@ struct HomeView: View {
             NavigationView {
                 List(viewModel.products) { product in
                     ProductListCell(product: product)
+                        .onTapGesture {
+                            viewModel.selectedProduct = product
+                            viewModel.isShowingDetail = true
+                        }
                 }
                 .listStyle(.plain)
                 .navigationTitle("🍟 Menu")
@@ -22,6 +26,17 @@ struct HomeView: View {
             .onAppear {
                 viewModel.getProducts()
             }
+            .blur(radius: viewModel.isShowingDetail ? 20 : 0)
+            .disabled(viewModel.isShowingDetail)
+            
+            if viewModel.isShowingDetail {
+                if let selectedProduct = viewModel.selectedProduct {
+                    ProductDetailsView(
+                        product: selectedProduct,
+                        isShowingDetail: $viewModel.isShowingDetail)
+                }
+            }
+            
             if viewModel.isLoading {
                 LoadingView()
             }

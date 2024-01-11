@@ -29,8 +29,8 @@ struct MockData {
                                 price: 12,
                                 imageURL: "",
                                 calories: .random(in: 0...1000),
-                                protein: .min,
-                                carbs: .max)
+                                protein: .random(in: 0...100),
+                                carbs: .random(in: 0...1000))
     static let sampleArray = [sample, sample, sample, sample, sample]
 }
  
