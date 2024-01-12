@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct DeliverySUIApp: App {
+    var order = Order()
+    
     var body: some Scene {
         WindowGroup {
-            DeliveryTabView()
+            DeliveryTabView().environmentObject(order)
         }
     }
 }

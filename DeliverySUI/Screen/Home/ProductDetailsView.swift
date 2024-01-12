@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductDetailsView: View {
     let product: Product
     @Binding var isShowingDetail: Bool
+    @EnvironmentObject var order: Order
     
     var body: some View {
         VStack {
@@ -37,7 +38,8 @@ struct ProductDetailsView: View {
             Spacer()
             
             Button {
-                //TODO: logic
+                order.items.append(product)
+                isShowingDetail = false
             } label: {
                 AppButton(title: "$\(product.price, specifier: "%.2f") - Add To Order")
             }
